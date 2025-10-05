@@ -1,0 +1,6 @@
+
+{
+  "formatCurrency": "@formatNumber(parameters('amount'), 2, 'en-us')",
+  "formatPhoneNumber": "@concat('(', substring(parameters('phone'), 0, 3), ') ', substring(parameters('phone'), 3, 3), '-', substring(parameters('phone'), 6))",
+  "calculateTax": "@mul(parameters('amount'), 0.0725)"
+}
