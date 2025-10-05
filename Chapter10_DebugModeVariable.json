@@ -1,0 +1,40 @@
+{
+  "definition": {
+    "actions": {
+      "Initialize_DebugMode": {
+        "type": "InitializeVariable",
+        "inputs": {
+          "variables": [
+            {
+              "name": "DebugMode",
+              "type": "boolean",
+              "value": true
+            }
+          ]
+        }
+      },
+      "Condition_DebugMode": {
+        "type": "If",
+        "expression": {
+          "equals": [
+            "variables('DebugMode')",
+            true
+          ]
+        },
+        "actions": {
+          "Debug_Log": {
+            "type": "Compose",
+            "inputs": "Debug information here"
+          }
+        }
+      }
+    },
+    "triggers": {
+      "Manual_Trigger": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Uses DebugMode variable to conditionally execute debug actions."
+}

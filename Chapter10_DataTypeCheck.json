@@ -1,0 +1,17 @@
+{
+  "definition": {
+    "actions": {
+      "Check_DataType": {
+        "type": "Compose",
+        "inputs": "@dataType(variables('myVariable'))"
+      }
+    },
+    "triggers": {
+      "Manual_Trigger": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Checks the data type of a variable using dataType() function."
+}

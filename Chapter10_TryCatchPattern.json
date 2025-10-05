@@ -1,0 +1,36 @@
+{
+  "definition": {
+    "actions": {
+      "Try_Scope": {
+        "type": "Scope",
+        "actions": {
+          "Main_Logic": {
+            "type": "Action",
+            "inputs": {}
+          }
+        }
+      },
+      "Catch_Scope": {
+        "type": "Scope",
+        "actions": {
+          "Handle_Error": {
+            "type": "Action",
+            "inputs": {}
+          }
+        },
+        "runAfter": {
+          "Try_Scope": [
+            "Failed"
+          ]
+        }
+      }
+    },
+    "triggers": {
+      "Manual_Trigger": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Implements try-catch pattern using scopes and runAfter configuration."
+}

@@ -1,0 +1,17 @@
+{
+  "definition": {
+    "actions": {
+      "Inspect_Data": {
+        "type": "Compose",
+        "inputs": "@outputs('Get_item')?['body/Title']"
+      }
+    },
+    "triggers": {
+      "Manual_Trigger": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Uses Compose action to inspect data at critical points."
+}

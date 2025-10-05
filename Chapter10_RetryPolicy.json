@@ -1,0 +1,24 @@
+{
+  "definition": {
+    "actions": {
+      "Retry_Action": {
+        "type": "Action",
+        "inputs": {},
+        "runtimeConfiguration": {
+          "retryPolicy": {
+            "type": "exponential",
+            "count": 3,
+            "interval": "PT30S"
+          }
+        }
+      }
+    },
+    "triggers": {
+      "Manual_Trigger": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Configures retry policy for transient errors."
+}

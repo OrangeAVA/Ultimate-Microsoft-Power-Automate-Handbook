@@ -1,0 +1,26 @@
+{
+  "definition": {
+    "actions": {
+      "Log_to_SharePoint": {
+        "type": "Action",
+        "inputs": {
+          "siteAddress": "https://example.sharepoint.com/sites/logs",
+          "listName": "FlowLogs",
+          "item": {
+            "Title": "Flow Execution Log",
+            "Timestamp": "@utcNow()",
+            "FlowName": "SampleFlow",
+            "Status": "Success"
+          }
+        }
+      }
+    },
+    "triggers": {
+      "Manual_Trigger": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Logs flow execution details to SharePoint."
+}

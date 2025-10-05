@@ -1,0 +1,28 @@
+{
+  "definition": {
+    "actions": {
+      "Test_Process_A": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Test_Process_B": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Send_Summary_Report": {
+        "type": "Action",
+        "inputs": {}
+      }
+    },
+    "triggers": {
+      "Scheduled_Trigger": {
+        "type": "Recurrence",
+        "recurrence": {
+          "frequency": "Day",
+          "interval": 1
+        }
+      }
+    }
+  },
+  "description": "Performs daily health checks and sends summary report."
+}

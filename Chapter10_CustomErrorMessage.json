@@ -1,0 +1,17 @@
+{
+  "definition": {
+    "actions": {
+      "Custom_Error_Message": {
+        "type": "Compose",
+        "inputs": "Customer record #12345 could not be found in the CRM system. Please verify the customer ID and ensure the customer exists in the system. If the problem persists, contact support at support@example.com with reference code FL-404."
+      }
+    },
+    "triggers": {
+      "Manual_Trigger": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Creates a user-friendly custom error message."
+}

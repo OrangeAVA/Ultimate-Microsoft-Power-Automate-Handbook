@@ -1,0 +1,26 @@
+{
+  "definition": {
+    "actions": {
+      "Step_1": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Step_2": {
+        "type": "Action",
+        "inputs": {},
+        "runAfter": {
+          "Step_1": [
+            "Succeeded"
+          ]
+        }
+      }
+    },
+    "triggers": {
+      "Manual_Trigger": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Demonstrates incremental development with step-by-step validation."
+}

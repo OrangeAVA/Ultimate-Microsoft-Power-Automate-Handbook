@@ -1,0 +1,32 @@
+{
+  "definition": {
+    "actions": {
+      "Check_Version": {
+        "type": "If",
+        "expression": {
+          "equals": [
+            "outputs('Get_item')?['body/Version']",
+            "variables('ExpectedVersion')"
+          ]
+        },
+        "actions": {
+          "Update_Record": {
+            "type": "Action",
+            "inputs": {}
+          },
+          "Handle_Conflict": {
+            "type": "Action",
+            "inputs": {}
+          }
+        }
+      }
+    },
+    "triggers": {
+      "Manual_Trigger": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Implements version checking for concurrency control."
+}
