@@ -1,0 +1,29 @@
+{
+  "definition": {
+    "actions": {
+      "Capture_Error_Details": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Call_Error_Logging_Flow": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Trigger_Alert": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Update_Dashboard": {
+        "type": "Action",
+        "inputs": {}
+      }
+    },
+    "triggers": {
+      "Production_Flow_Error": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Centralized error logging and alerting."
+}

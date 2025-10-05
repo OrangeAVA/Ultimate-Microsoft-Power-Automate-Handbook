@@ -1,0 +1,49 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "actions": {
+      "Process_Payment": {
+        "type": "Action",
+        "inputs": {},
+        "runAfter": {}
+      },
+      "Primary_Shipping": {
+        "type": "Action",
+        "inputs": {},
+        "runAfter": {
+          "Process_Payment": [
+            "Succeeded"
+          ]
+        }
+      },
+      "Backup_Shipping": {
+        "type": "Action",
+        "inputs": {},
+        "runAfter": {
+          "Primary_Shipping": [
+            "Failed"
+          ]
+        }
+      },
+      "Send_Confirmation": {
+        "type": "Action",
+        "inputs": {},
+        "runAfter": {
+          "Primary_Shipping": [
+            "Succeeded"
+          ],
+          "Backup_Shipping": [
+            "Succeeded"
+          ]
+        }
+      }
+    },
+    "triggers": {
+      "When_a_new_order_is_received": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Order processing with fallback to backup shipping if primary fails, and confirmation email."
+}

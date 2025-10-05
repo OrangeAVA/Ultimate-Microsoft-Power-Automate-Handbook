@@ -1,0 +1,49 @@
+{
+  "definition": {
+    "actions": {
+      "Validate_Email_Expression": {
+        "type": "If",
+        "expression": {
+          "and": [
+            {
+              "greater": [
+                {
+                  "length": [
+                    "triggerBody()?['email']"
+                  ]
+                },
+                0
+              ]
+            },
+            {
+              "contains": [
+                "triggerBody()?['email']",
+                "@"
+              ]
+            }
+          ]
+        },
+        "actions": {
+          "Continue_Processing": {
+            "type": "Action",
+            "inputs": {}
+          },
+          "Terminate_with_Error": {
+            "type": "Terminate",
+            "inputs": {
+              "status": "Failed",
+              "message": "Invalid email."
+            }
+          }
+        }
+      }
+    },
+    "triggers": {
+      "Form_Submission": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Advanced validation using expressions."
+}

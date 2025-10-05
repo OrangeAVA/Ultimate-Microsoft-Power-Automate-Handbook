@@ -1,0 +1,29 @@
+{
+  "definition": {
+    "actions": {
+      "Log_Flow_Start": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Log_Flow_Completion": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Log_Error": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Generate_Weekly_Report": {
+        "type": "Action",
+        "inputs": {}
+      }
+    },
+    "triggers": {
+      "Business_Critical_Flow": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Logs flow execution and errors for monitoring."
+}

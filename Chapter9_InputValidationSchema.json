@@ -1,0 +1,30 @@
+{
+  "definition": {
+    "actions": {
+      "Check_Required_Fields": {
+        "type": "If",
+        "expression": {},
+        "actions": {
+          "Continue_Processing": {
+            "type": "Action",
+            "inputs": {}
+          },
+          "Terminate_with_Error": {
+            "type": "Terminate",
+            "inputs": {
+              "status": "Failed",
+              "message": "Missing required fields."
+            }
+          }
+        }
+      }
+    },
+    "triggers": {
+      "Form_Submission": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Validates required fields before processing."
+}

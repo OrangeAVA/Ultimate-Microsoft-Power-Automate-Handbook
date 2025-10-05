@@ -1,0 +1,47 @@
+{
+  "definition": {
+    "actions": {
+      "Get_Orders": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Initialize_Batch_Size": {
+        "type": "InitializeVariable",
+        "inputs": {
+          "variables": [
+            {
+              "name": "batchSize",
+              "type": "int",
+              "value": 100
+            }
+          ]
+        }
+      },
+      "For_Each_Batch": {
+        "type": "Foreach",
+        "inputs": {},
+        "actions": {
+          "Process_Order": {
+            "type": "Action",
+            "inputs": {}
+          },
+          "Log_Batch_Completion": {
+            "type": "Action",
+            "inputs": {}
+          }
+        }
+      },
+      "Send_Summary": {
+        "type": "Action",
+        "inputs": {}
+      }
+    },
+    "triggers": {
+      "New_Orders": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Batch processing of orders with concurrency."
+}

@@ -1,0 +1,35 @@
+{
+  "definition": {
+    "actions": {
+      "Parallel_Branch_A": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Parallel_Branch_B": {
+        "type": "Action",
+        "inputs": {}
+      },
+      "Condition_Check": {
+        "type": "If",
+        "expression": {},
+        "actions": {
+          "Use_Result_A": {
+            "type": "Action",
+            "inputs": {}
+          },
+          "Use_Result_B": {
+            "type": "Action",
+            "inputs": {}
+          }
+        }
+      }
+    },
+    "triggers": {
+      "Critical_data_processing": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Parallel processing for redundancy and reliability."
+}

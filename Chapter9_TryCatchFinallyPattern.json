@@ -1,0 +1,55 @@
+{
+  "definition": {
+    "actions": {
+      "Try_Scope": {
+        "type": "Scope",
+        "actions": {
+          "Main_Workflow_Actions": {
+            "type": "Action",
+            "inputs": {}
+          }
+        }
+      },
+      "Catch_Scope": {
+        "type": "Scope",
+        "actions": {
+          "Error_Handling_Actions": {
+            "type": "Action",
+            "inputs": {}
+          }
+        },
+        "runAfter": {
+          "Try_Scope": [
+            "Failed"
+          ]
+        }
+      },
+      "Finally_Scope": {
+        "type": "Scope",
+        "actions": {
+          "Cleanup_Actions": {
+            "type": "Action",
+            "inputs": {}
+          }
+        },
+        "runAfter": {
+          "Try_Scope": [
+            "Succeeded",
+            "Failed"
+          ],
+          "Catch_Scope": [
+            "Succeeded",
+            "Failed"
+          ]
+        }
+      }
+    },
+    "triggers": {
+      "Start": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Try-Catch-Finally error handling pattern using scopes."
+}

@@ -1,0 +1,52 @@
+{
+  "definition": {
+    "actions": {
+      "Validation_Scope": {
+        "type": "Scope",
+        "actions": {
+          "Validate_Email": {
+            "type": "Action",
+            "inputs": {}
+          },
+          "Validate_Phone": {
+            "type": "Action",
+            "inputs": {}
+          },
+          "Check_Required_Fields": {
+            "type": "Action",
+            "inputs": {}
+          },
+          "Check_Duplicate": {
+            "type": "Action",
+            "inputs": {}
+          }
+        }
+      },
+      "Process_Registration": {
+        "type": "Action",
+        "inputs": {},
+        "runAfter": {
+          "Validation_Scope": [
+            "Succeeded"
+          ]
+        }
+      },
+      "Send_Back_for_Correction": {
+        "type": "Action",
+        "inputs": {},
+        "runAfter": {
+          "Validation_Scope": [
+            "Failed"
+          ]
+        }
+      }
+    },
+    "triggers": {
+      "Customer_Registration": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Customer registration with multi-field validation."
+}

@@ -1,0 +1,48 @@
+{
+  "definition": {
+    "actions": {
+      "Customer_Validation_Scope": {
+        "type": "Scope",
+        "actions": {
+          "Validate_Email": {
+            "type": "Action",
+            "inputs": {}
+          },
+          "Check_Duplicate": {
+            "type": "Action",
+            "inputs": {}
+          },
+          "Validate_Address": {
+            "type": "Action",
+            "inputs": {}
+          }
+        }
+      },
+      "Add_to_CRM": {
+        "type": "Action",
+        "inputs": {},
+        "runAfter": {
+          "Customer_Validation_Scope": [
+            "Succeeded"
+          ]
+        }
+      },
+      "Send_Alert": {
+        "type": "Action",
+        "inputs": {},
+        "runAfter": {
+          "Customer_Validation_Scope": [
+            "Failed"
+          ]
+        }
+      }
+    },
+    "triggers": {
+      "When_a_new_customer_signs_up": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "Customer onboarding with grouped validation and error handling."
+}

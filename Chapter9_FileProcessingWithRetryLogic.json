@@ -1,0 +1,81 @@
+{
+  "definition": {
+    "actions": {
+      "Initialize_retryCount": {
+        "type": "InitializeVariable",
+        "inputs": {
+          "variables": [
+            {
+              "name": "retryCount",
+              "type": "int",
+              "value": 0
+            }
+          ]
+        }
+      },
+      "Do_Until": {
+        "type": "Until",
+        "expression": {
+          "or": [
+            {
+              "equals": [
+                "variables('success')",
+                true
+              ]
+            },
+            {
+              "greater": [
+                "variables('retryCount')",
+                5
+              ]
+            }
+          ]
+        },
+        "actions": {
+          "Try_Process_File": {
+            "type": "Action",
+            "inputs": {}
+          },
+          "Increment_retryCount": {
+            "type": "IncrementVariable",
+            "inputs": {
+              "name": "retryCount",
+              "value": 1
+            }
+          },
+          "Delay": {
+            "type": "Delay",
+            "inputs": {
+              "interval": "PT30S"
+            }
+          }
+        }
+      },
+      "Send_Success": {
+        "type": "Action",
+        "inputs": {},
+        "runAfter": {
+          "Do_Until": [
+            "Succeeded"
+          ]
+        }
+      },
+      "Send_Failure": {
+        "type": "Action",
+        "inputs": {},
+        "runAfter": {
+          "Do_Until": [
+            "Failed"
+          ]
+        }
+      }
+    },
+    "triggers": {
+      "When_a_file_is_added": {
+        "type": "Request",
+        "kind": "Button"
+      }
+    }
+  },
+  "description": "File processing with retry logic and capped attempts."
+}
